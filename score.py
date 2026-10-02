@@ -12,7 +12,10 @@ HERE = pathlib.Path(__file__).parent
 spec = importlib.util.spec_from_file_location("qt", HERE / "tasks.py")
 qt = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(qt)
-TASKS = {t["id"]: t for t in qt.build()}
+# Scored per language: a result file records the language it ran in, and the expected answers
+# differ ("Parijs" against "Paris", "JA" against "YES"). Scoring every file against one
+# language marks correct answers wrong, which is exactly what happened on the first English run.
+TASKS_BY_LANG = {lang: {t["id"]: t for t in qt.build(lang)} for lang in ("nl", "en")}
 
 FENCE = re.compile(r"```(?:python|json)?\s*(.*?)```", re.S)
 
@@ -82,6 +85,7 @@ results_dir = pathlib.Path(os.environ.get("EVAL_OUT", HERE / "results"))
 for path in sorted(results_dir.glob("*.json")):
     doc = json.loads(path.read_text())
     label = doc["label"]
+    TASKS = TASKS_BY_LANG[doc.get("lang", "nl")]
     per_kind, notes, cut = {}, [], []
     for r in doc["results"]:
         task = TASKS[r["id"]]

@@ -1,0 +1,142 @@
+{
+ "label": "mlx-lm-en",
+ "model": "mlx-community/Qwen3.8-27B-4bit",
+ "lang": "en",
+ "results": [
+  {
+   "id": "json-01",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Office coffee machine is leaking water\",\n  \"priority\": \"high\",\n  \"labels\": [\n    \"maintenance\",\n    \"facilities\"\n  ],\n  \"estimate\": 1\n}",
+   "secs": 29.34,
+   "error": null,
+   "finish": "stop",
+   "used": 274
+  },
+  {
+   "id": "json-02",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Change footer colour\",\n  \"priority\": \"low\",\n  \"labels\": [\n    \"footer\",\n    \"colour\"\n  ]\n}",
+   "secs": 34.31,
+   "error": null,
+   "finish": "stop",
+   "used": 259
+  },
+  {
+   "id": "json-03",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Checkout page returns 500 on every order; production is down\",\n  \"priority\": \"high\",\n  \"labels\": [\n    \"bug\",\n    \"production\",\n    \"checkout\"\n  ],\n  \"estimate\": 1\n}",
+   "secs": 22.34,
+   "error": null,
+   "finish": "stop",
+   "used": 160
+  },
+  {
+   "id": "json-04",
+   "kind": "json",
+   "answer": "{\"title\":\"Add a dark mode to the dashboard\",\"priority\":\"low\",\"labels\":[\"dashboard\",\"dark-mode\",\"enhancement\"]}",
+   "secs": 34.29,
+   "error": null,
+   "finish": "stop",
+   "used": 260
+  },
+  {
+   "id": "json-05",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Search ignores accents\",\n  \"priority\": \"high\",\n  \"labels\": [\n    \"search\",\n    \"bug\",\n    \"ux\"\n  ]\n}",
+   "secs": 47.5,
+   "error": null,
+   "finish": "stop",
+   "used": 372
+  },
+  {
+   "id": "json-06",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Every backup has failed since Monday\",\n  \"priority\": \"high\",\n  \"labels\": [\"backup\", \"incident\"]\n}",
+   "secs": 26.27,
+   "error": null,
+   "finish": "stop",
+   "used": 202
+  },
+  {
+   "id": "json-07",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Update 'Log in' label to 'Sign in'\",\n  \"priority\": \"low\",\n  \"labels\": [\n    \"ui\",\n    \"copy\"\n  ],\n  \"estimate\": 1\n}",
+   "secs": 30.59,
+   "error": null,
+   "finish": "stop",
+   "used": 235
+  },
+  {
+   "id": "json-08",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Write tests for the invoice export\",\n  \"priority\": \"normal\",\n  \"labels\": [\n    \"testing\",\n    \"invoice-export\"\n  ]\n}",
+   "secs": 35.89,
+   "error": null,
+   "finish": "stop",
+   "used": 283
+  },
+  {
+   "id": "json-09",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"SSL certificate expires tomorrow\",\n  \"priority\": \"high\",\n  \"labels\": [\n    \"ssl\",\n    \"certificate\",\n    \"security\"\n  ],\n  \"estimate\": 1\n}",
+   "secs": 26.28,
+   "error": null,
+   "finish": "stop",
+   "used": 204
+  },
+  {
+   "id": "json-10",
+   "kind": "json",
+   "answer": "{\"title\":\"Clean up unused CSS classes\",\"priority\":\"low\",\"labels\":[\"css\",\"cleanup\"]}",
+   "secs": 34.4,
+   "error": null,
+   "finish": "stop",
+   "used": 265
+  },
+  {
+   "id": "con-01",
+   "kind": "constraint",
+   "answer": "Paris",
+   "secs": 5.77,
+   "error": null,
+   "finish": "stop",
+   "used": 38
+  },
+  {
+   "id": "con-02",
+   "kind": "constraint",
+   "answer": "3600",
+   "secs": 8.72,
+   "error": null,
+   "finish": "stop",
+   "used": 46
+  },
+  {
+   "id": "con-03",
+   "kind": "constraint",
+   "answer": "YES",
+   "secs": 8.23,
+   "error": null,
+   "finish": "stop",
+   "used": 51
+  },
+  {
+   "id": "con-04",
+   "kind": "constraint",
+   "answer": "red,blue,green",
+   "secs": 12.02,
+   "error": null,
+   "finish": "stop",
+   "used": 94
+  },
+  {
+   "id": "con-05",
+   "kind": "constraint",
+   "answer": "tests often catch bugs early",
+   "secs": 43.51,
+   "error": null,
+   "finish": "stop",
+   "used": 319
+  }
+ ]
+}

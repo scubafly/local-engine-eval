@@ -1,0 +1,276 @@
+{
+ "label": "llamacpp-mtp-uit",
+ "model": "Qwen3.8-27B-UD-Q4_K_M",
+ "results": [
+  {
+   "id": "code-01",
+   "kind": "code",
+   "answer": "def is_palindrome(s):\n    chars = [c.lower() for c in s if c.isalnum()]\n    return chars == chars[::-1]",
+   "secs": 35.73,
+   "error": null,
+   "finish": "stop",
+   "used": 440
+  },
+  {
+   "id": "code-02",
+   "kind": "code",
+   "answer": "def chunk(lst, n):\n    if n <= 0:\n        return []\n    return [lst[i:i + n] for i in range(0, len(lst), n)]",
+   "secs": 34.67,
+   "error": null,
+   "finish": "stop",
+   "used": 433
+  },
+  {
+   "id": "code-03",
+   "kind": "code",
+   "answer": "def roman(n):\n    values = [\n        (1000, \"M\"), (900, \"CM\"), (500, \"D\"), (400, \"CD\"),\n        (100, \"C\"), (90, \"XC\"), (50, \"L\"), (40, \"XL\"),\n        (10, \"X\"), (9, \"IX\"), (5, \"V\"), (4, \"IV\"), (1, \"I\")\n    ]\n    result = []\n    for value, symbol in values:\n        while n >= value:\n            result.append(symbol)\n            n -= value\n    return \"\".join(result)",
+   "secs": 106.59,
+   "error": null,
+   "finish": "stop",
+   "used": 1326
+  },
+  {
+   "id": "code-04",
+   "kind": "code",
+   "answer": "def merge_intervals(iv):\n    if not iv:\n        return []\n\n    intervals = sorted(iv, key=lambda x: x[0])\n    merged = [list(intervals[0])]\n\n    for start, end in intervals[1:]:\n        if start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n\n    return merged",
+   "secs": 41.13,
+   "error": null,
+   "finish": "stop",
+   "used": 515
+  },
+  {
+   "id": "code-05",
+   "kind": "code",
+   "answer": "",
+   "secs": 248.63,
+   "error": null,
+   "finish": "length",
+   "used": 3000
+  },
+  {
+   "id": "code-06",
+   "kind": "code",
+   "answer": "def flatten(x):\n    result = []\n    for item in x:\n        if isinstance(item, list):\n            result.extend(flatten(item))\n        else:\n            result.append(item)\n    return result",
+   "secs": 33.48,
+   "error": null,
+   "finish": "stop",
+   "used": 419
+  },
+  {
+   "id": "code-07",
+   "kind": "code",
+   "answer": "def parse_duration(s):\n    units = {'d': 86400, 'h': 3600, 'm': 60, 's': 1}\n    total = 0\n    num = ''\n    seen = False\n\n    for ch in str(s).strip().lower():\n        if ch.isdigit():\n            num += ch\n        elif ch in units:\n            if not num:\n                raise ValueError(\"Invalid duration\")\n            total += int(num) * units[ch]\n            num = ''\n            seen = True\n        else:\n            raise ValueError(\"Invalid duration\")\n\n    if not seen or num:\n        raise ValueError(\"Invalid duration\")\n\n    return total",
+   "secs": 246.27,
+   "error": null,
+   "finish": "stop",
+   "used": 2972
+  },
+  {
+   "id": "code-08",
+   "kind": "code",
+   "answer": "def top_k(lst, k):\n    if k <= 0:\n        return []\n    return sorted(lst, reverse=True)[:k]",
+   "secs": 27.95,
+   "error": null,
+   "finish": "stop",
+   "used": 348
+  },
+  {
+   "id": "code-09",
+   "kind": "code",
+   "answer": "def is_valid_brackets(s):\n    stack = []\n    matching = {\n        \")\": \"(\",\n        \"]\": \"[\",\n        \"}\": \"{\"\n    }\n    openers = set(matching.values())\n\n    for char in s:\n        if char in openers:\n            stack.append(char)\n        elif char in matching:\n            if not stack or stack.pop() != matching[char]:\n                return False\n\n    return not stack",
+   "secs": 31.8,
+   "error": null,
+   "finish": "stop",
+   "used": 397
+  },
+  {
+   "id": "code-10",
+   "kind": "code",
+   "answer": "def diff_lines(a, b):\n    result = []\n    for i in range(max(len(a), len(b))):\n        if i < len(a) and i < len(b):\n            if a[i] == b[i]:\n                result.append((' ', a[i]))\n            else:\n                result.append(('-', a[i]))\n                result.append(('+', b[i]))\n        elif i < len(a):\n            result.append(('-', a[i]))\n        else:\n            result.append(('+', b[i]))\n    return result",
+   "secs": 168.96,
+   "error": null,
+   "finish": "stop",
+   "used": 2062
+  },
+  {
+   "id": "json-01",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Koffiemachine op kantoor lekt water\",\n  \"priority\": \"high\",\n  \"labels\": [\"koffiemachine\", \"lekkage\", \"faciliteiten\"]\n}",
+   "secs": 14.89,
+   "error": null,
+   "finish": "stop",
+   "used": 169
+  },
+  {
+   "id": "json-02",
+   "kind": "json",
+   "answer": "{\"title\":\"Kleur van de footer aanpassen\",\"priority\":\"low\",\"labels\":[\"footer\",\"kleur\",\"design\"]}",
+   "secs": 24.06,
+   "error": null,
+   "finish": "stop",
+   "used": 285
+  },
+  {
+   "id": "json-03",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Betaalpagina geeft 500 bij iedere order; productie staat stil\",\n  \"priority\": \"high\",\n  \"labels\": [\n    \"production\",\n    \"payment\",\n    \"incident\"\n  ]\n}",
+   "secs": 14.83,
+   "error": null,
+   "finish": "stop",
+   "used": 168
+  },
+  {
+   "id": "json-04",
+   "kind": "json",
+   "answer": "{\"title\":\"Voeg een dark mode toe aan het dashboard\",\"priority\":\"low\",\"labels\":[\"feature\",\"dashboard\",\"dark-mode\"]}",
+   "secs": 26.18,
+   "error": null,
+   "finish": "stop",
+   "used": 312
+  },
+  {
+   "id": "json-05",
+   "kind": "json",
+   "answer": "{\"title\":\"Zoekfunctie negeert accenten\",\"priority\":\"high\",\"labels\":[\"zoekfunctie\",\"accenten\",\"bug\"]}",
+   "secs": 25.02,
+   "error": null,
+   "finish": "stop",
+   "used": 294
+  },
+  {
+   "id": "json-06",
+   "kind": "json",
+   "answer": "{\"title\":\"Alle back-ups zijn sinds maandag mislukt\",\"priority\":\"high\",\"labels\":[\"backups\",\"incident\"]}",
+   "secs": 27.74,
+   "error": null,
+   "finish": "stop",
+   "used": 331
+  },
+  {
+   "id": "json-07",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Wijzig tekst 'Inloggen' naar 'Aanmelden'\",\n  \"priority\": \"low\",\n  \"labels\": [\"tekst\", \"ui\"]\n}",
+   "secs": 24.14,
+   "error": null,
+   "finish": "stop",
+   "used": 286
+  },
+  {
+   "id": "json-08",
+   "kind": "json",
+   "answer": "{\"title\":\"Schrijf tests voor de factuur-export\",\"priority\":\"normal\",\"labels\":[\"testing\",\"factuur-export\"]}",
+   "secs": 33.79,
+   "error": null,
+   "finish": "stop",
+   "used": 407
+  },
+  {
+   "id": "json-09",
+   "kind": "json",
+   "answer": "{\"title\":\"SSL-certificaat verloopt morgen\",\"priority\":\"high\",\"labels\":[\"ssl\",\"certificaat\",\"urgentie\"]}",
+   "secs": 17.0,
+   "error": null,
+   "finish": "stop",
+   "used": 197
+  },
+  {
+   "id": "json-10",
+   "kind": "json",
+   "answer": "{\"title\":\"Ruim de ongebruikte CSS-klassen op\",\"priority\":\"low\",\"labels\":[\"css\",\"cleanup\"]}",
+   "secs": 24.94,
+   "error": null,
+   "finish": "stop",
+   "used": 296
+  },
+  {
+   "id": "con-01",
+   "kind": "constraint",
+   "answer": "Parijs",
+   "secs": 5.46,
+   "error": null,
+   "finish": "stop",
+   "used": 64
+  },
+  {
+   "id": "con-02",
+   "kind": "constraint",
+   "answer": "3600",
+   "secs": 6.54,
+   "error": null,
+   "finish": "stop",
+   "used": 78
+  },
+  {
+   "id": "con-03",
+   "kind": "constraint",
+   "answer": "JA",
+   "secs": 6.64,
+   "error": null,
+   "finish": "stop",
+   "used": 79
+  },
+  {
+   "id": "con-04",
+   "kind": "constraint",
+   "answer": "rood,blauw,geel",
+   "secs": 31.24,
+   "error": null,
+   "finish": "stop",
+   "used": 393
+  },
+  {
+   "id": "con-05",
+   "kind": "constraint",
+   "answer": "tests voorkomen fouten in code",
+   "secs": 15.3,
+   "error": null,
+   "finish": "stop",
+   "used": 190
+  },
+  {
+   "id": "rec-01",
+   "kind": "recall",
+   "answer": "8831",
+   "secs": 169.96,
+   "error": null,
+   "finish": "stop",
+   "used": 113
+  },
+  {
+   "id": "rec-02",
+   "kind": "recall",
+   "answer": "mevrouw Visserman",
+   "secs": 171.53,
+   "error": null,
+   "finish": "stop",
+   "used": 122
+  },
+  {
+   "id": "rec-03",
+   "kind": "recall",
+   "answer": "28 dagen",
+   "secs": 171.76,
+   "error": null,
+   "finish": "stop",
+   "used": 122
+  },
+  {
+   "id": "rec-04",
+   "kind": "recall",
+   "answer": "KR-7742-B",
+   "secs": 170.59,
+   "error": null,
+   "finish": "stop",
+   "used": 118
+  },
+  {
+   "id": "rec-05",
+   "kind": "recall",
+   "answer": "week 37",
+   "secs": 172.37,
+   "error": null,
+   "finish": "stop",
+   "used": 130
+  }
+ ]
+}

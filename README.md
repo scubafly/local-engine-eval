@@ -4,6 +4,10 @@ Built on 2026-10-02 to answer a concrete question: Hermes runs the developer rol
 27B model, and we wanted to know which engine to serve it with, on quality as well as speed.
 The answer turned out to depend on both, in opposite directions, so both are measured here.
 
+Measured results from the first full run are in [RESULTS.md](RESULTS.md): five engine and
+quantisation combinations on Qwen3.8-27B, where quality came out indistinguishable and
+speculative decoding lost on every engine that offered it.
+
 Two independent harnesses:
 
 - `bench.py` — speed. Streams, so time-to-first-token is real rather than inferred.
@@ -56,6 +60,7 @@ scoring. It is still arbitrary generated code, so run it on a machine where that
 
 ```sh
 # speed, one engine at a time
+LLAMA_SERVER=... GGUF_MODEL=... python3 bench-variants.py   # isolate ctx / KV / speculative
 python3 bench.py llamacpp "$API_KEY"
 python3 bench.py ollama
 
@@ -63,6 +68,10 @@ python3 bench.py ollama
 ./drivers/llamacpp.sh                  # own llama-server, MTP off, port 18500
 ./drivers/ollama.sh                    # Ollama's MLX runner
 python3 run.py splash http://<other-host>:8000/v1 unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_M
+
+# the English subset of the two language-sensitive categories
+EVAL_LANG=en EVAL_KINDS=json,constraint python3 run.py ollama-en http://127.0.0.1:11434/v1 <model>
+
 python3 score.py
 ```
 

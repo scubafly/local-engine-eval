@@ -1,0 +1,142 @@
+{
+ "label": "mtplx-mtp-en",
+ "model": "mtplx-qwen38-27b-optimized-speed",
+ "lang": "en",
+ "results": [
+  {
+   "id": "json-01",
+   "kind": "json",
+   "answer": "{\"title\":\"Office coffee machine leaking water\",\"priority\":\"normal\",\"labels\":[\"facilities\",\"maintenance\"],\"estimate\":2}",
+   "secs": 14.3,
+   "error": null,
+   "finish": "stop",
+   "used": 213
+  },
+  {
+   "id": "json-02",
+   "kind": "json",
+   "answer": "{\"title\":\"Change footer colour\",\"priority\":\"low\",\"labels\":[\"footer\",\"styling\"]}",
+   "secs": 19.21,
+   "error": null,
+   "finish": "stop",
+   "used": 192
+  },
+  {
+   "id": "json-03",
+   "kind": "json",
+   "answer": "{\"title\":\"Checkout page returns 500 on every order - Production down\",\"priority\":\"high\",\"labels\":[\"production\",\"checkout\",\"bug\",\"critical\"]}",
+   "secs": 21.72,
+   "error": null,
+   "finish": "stop",
+   "used": 259
+  },
+  {
+   "id": "json-04",
+   "kind": "json",
+   "answer": "{\"title\":\"Add a dark mode to the dashboard\",\"priority\":\"low\",\"labels\":[\"feature\",\"dashboard\",\"ui\"]}",
+   "secs": 21.9,
+   "error": null,
+   "finish": "stop",
+   "used": 250
+  },
+  {
+   "id": "json-05",
+   "kind": "json",
+   "answer": "{\"title\":\"Search ignores accents\",\"priority\":\"normal\",\"labels\":[\"search\",\"bug\",\"i18n\"]}",
+   "secs": 30.88,
+   "error": null,
+   "finish": "stop",
+   "used": 345
+  },
+  {
+   "id": "json-06",
+   "kind": "json",
+   "answer": "{\"title\":\"All backups failing since Monday\",\"priority\":\"high\",\"labels\":[\"backup\",\"infrastructure\",\"incident\"],\"estimate\":4}",
+   "secs": 23.6,
+   "error": null,
+   "finish": "stop",
+   "used": 265
+  },
+  {
+   "id": "json-07",
+   "kind": "json",
+   "answer": "{\"title\":\"Update label 'Log in' to 'Sign in'\",\"priority\":\"low\",\"labels\":[\"ui\",\"label\",\"copy\"]}",
+   "secs": 25.37,
+   "error": null,
+   "finish": "stop",
+   "used": 266
+  },
+  {
+   "id": "json-08",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Write tests for the invoice export\",\n  \"priority\": \"normal\",\n  \"labels\": [\"testing\", \"invoice-export\", \"code-coverage\"],\n  \"estimate\": 4\n}",
+   "secs": 24.72,
+   "error": null,
+   "finish": "stop",
+   "used": 263
+  },
+  {
+   "id": "json-09",
+   "kind": "json",
+   "answer": "{\"title\":\"SSL certificate expires tomorrow\",\"priority\":\"high\",\"labels\":[\"ssl\",\"certificate\",\"security\",\"urgent\"],\"estimate\":1}",
+   "secs": 27.31,
+   "error": null,
+   "finish": "stop",
+   "used": 265
+  },
+  {
+   "id": "json-10",
+   "kind": "json",
+   "answer": "{\"title\":\"Clean up the unused CSS classes\",\"priority\":\"low\",\"labels\":[\"css\",\"cleanup\",\"maintenance\"],\"estimate\":1}",
+   "secs": 25.5,
+   "error": null,
+   "finish": "stop",
+   "used": 277
+  },
+  {
+   "id": "con-01",
+   "kind": "constraint",
+   "answer": "Paris",
+   "secs": 3.18,
+   "error": null,
+   "finish": "stop",
+   "used": 31
+  },
+  {
+   "id": "con-02",
+   "kind": "constraint",
+   "answer": "3600",
+   "secs": 4.13,
+   "error": null,
+   "finish": "stop",
+   "used": 51
+  },
+  {
+   "id": "con-03",
+   "kind": "constraint",
+   "answer": "YES",
+   "secs": 6.09,
+   "error": null,
+   "finish": "stop",
+   "used": 74
+  },
+  {
+   "id": "con-04",
+   "kind": "constraint",
+   "answer": "red,blue,green",
+   "secs": 7.3,
+   "error": null,
+   "finish": "stop",
+   "used": 77
+  },
+  {
+   "id": "con-05",
+   "kind": "constraint",
+   "answer": "they catch bugs before release",
+   "secs": 20.23,
+   "error": null,
+   "finish": "stop",
+   "used": 281
+  }
+ ]
+}

@@ -1,0 +1,142 @@
+{
+ "label": "splash-m5-en",
+ "model": "unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_M",
+ "lang": "en",
+ "results": [
+  {
+   "id": "json-01",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Office coffee machine leaking water\",\n  \"priority\": \"high\",\n  \"labels\": [\n    \"maintenance\",\n    \"office\",\n    \"coffee-machine\"\n  ]\n}",
+   "secs": 6.82,
+   "error": null,
+   "finish": "stop",
+   "used": 253
+  },
+  {
+   "id": "json-02",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Change footer colour\",\n  \"priority\": \"low\",\n  \"labels\": [\n    \"footer\",\n    \"colour\"\n  ]\n}",
+   "secs": 4.19,
+   "error": null,
+   "finish": "stop",
+   "used": 168
+  },
+  {
+   "id": "json-03",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Checkout page returns 500 on every order; production is down\",\n  \"priority\": \"high\",\n  \"labels\": [\n    \"production\",\n    \"checkout\",\n    \"bug\",\n    \"critical\"\n  ]\n}",
+   "secs": 4.69,
+   "error": null,
+   "finish": "stop",
+   "used": 215
+  },
+  {
+   "id": "json-04",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Add dark mode to dashboard\",\n  \"priority\": \"low\",\n  \"labels\": [\n    \"feature\",\n    \"dashboard\",\n    \"ui\"\n  ],\n  \"estimate\": 3\n}",
+   "secs": 4.02,
+   "error": null,
+   "finish": "stop",
+   "used": 200
+  },
+  {
+   "id": "json-05",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Search ignores accents\",\n  \"priority\": \"high\",\n  \"labels\": [\n    \"search\",\n    \"bug\",\n    \"accents\"\n  ],\n  \"estimate\": 3\n}",
+   "secs": 5.77,
+   "error": null,
+   "finish": "stop",
+   "used": 263
+  },
+  {
+   "id": "json-06",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Every backup has failed since Monday\",\n  \"priority\": \"high\",\n  \"labels\": [\"backup\", \"incident\", \"data-loss-risk\"]\n}",
+   "secs": 3.8,
+   "error": null,
+   "finish": "stop",
+   "used": 158
+  },
+  {
+   "id": "json-07",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Update 'Log in' label to 'Sign in'\",\n  \"priority\": \"low\",\n  \"labels\": [\n    \"ui\",\n    \"copy\",\n    \"label\"\n  ]\n}",
+   "secs": 6.68,
+   "error": null,
+   "finish": "stop",
+   "used": 275
+  },
+  {
+   "id": "json-08",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Write tests for invoice export\",\n  \"priority\": \"normal\",\n  \"labels\": [\n    \"testing\",\n    \"invoice-export\"\n  ],\n  \"estimate\": 2\n}",
+   "secs": 5.36,
+   "error": null,
+   "finish": "stop",
+   "used": 240
+  },
+  {
+   "id": "json-09",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"SSL certificate expires tomorrow\",\n  \"priority\": \"high\",\n  \"labels\": [\"ssl\", \"security\", \"certificate\", \"urgent\"],\n  \"estimate\": 1\n}",
+   "secs": 3.21,
+   "error": null,
+   "finish": "stop",
+   "used": 159
+  },
+  {
+   "id": "json-10",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Clean up unused CSS classes\",\n  \"priority\": \"low\",\n  \"labels\": [\"css\", \"cleanup\"]\n}",
+   "secs": 3.48,
+   "error": null,
+   "finish": "stop",
+   "used": 173
+  },
+  {
+   "id": "con-01",
+   "kind": "constraint",
+   "answer": "Paris",
+   "secs": 0.64,
+   "error": null,
+   "finish": "stop",
+   "used": 24
+  },
+  {
+   "id": "con-02",
+   "kind": "constraint",
+   "answer": "3600",
+   "secs": 0.93,
+   "error": null,
+   "finish": "stop",
+   "used": 51
+  },
+  {
+   "id": "con-03",
+   "kind": "constraint",
+   "answer": "YES",
+   "secs": 1.05,
+   "error": null,
+   "finish": "stop",
+   "used": 51
+  },
+  {
+   "id": "con-04",
+   "kind": "constraint",
+   "answer": "red,blue,green",
+   "secs": 2.62,
+   "error": null,
+   "finish": "stop",
+   "used": 105
+  },
+  {
+   "id": "con-05",
+   "kind": "constraint",
+   "answer": "They catch bugs early reliably",
+   "secs": 3.67,
+   "error": null,
+   "finish": "stop",
+   "used": 143
+  }
+ ]
+}

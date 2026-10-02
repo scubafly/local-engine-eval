@@ -123,19 +123,83 @@ RECALL = [
 ]
 
 
-def build():
-    """Return a list of task dicts: id, kind, prompt, max_tokens, and the scoring payload."""
+
+# --- English variants -------------------------------------------------------------------
+#
+# Why these exist: on a Dutch prompt the model reasons in English anyway ("We need answer
+# user's request in Dutch: ... Means Name three colors..."), so a non-English prompt adds a
+# translation step, spends more tokens, and leans on exactly the multilingual ability that
+# aggressive quantisation damages first. That makes Dutch the more sensitive probe and English
+# the more comparable one, so both are available and the results are reported separately.
+
+SCHEMA_EN = """{
+  "name": "create_ticket",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "title":    {"type": "string"},
+      "priority": {"type": "string", "enum": ["low", "normal", "high"]},
+      "labels":   {"type": "array", "items": {"type": "string"}},
+      "estimate": {"type": "number"}
+    },
+    "required": ["title", "priority", "labels"]
+  }
+}"""
+
+JSON_TASKS_EN = [
+    ("json-01", "The office coffee machine is leaking water and needs fixing soon.", "high"),
+    ("json-02", "Someone could change the footer colour at some point, no rush.", "low"),
+    ("json-03", "The checkout page returns a 500 on every order. Production is down.", "high"),
+    ("json-04", "Add a dark mode to the dashboard, would be nice next sprint.", "normal"),
+    ("json-05", "Search ignores accents and users complain about it weekly.", "normal"),
+    ("json-06", "Every backup has failed since Monday.", "high"),
+    ("json-07", "The label 'Log in' may become 'Sign in'.", "low"),
+    ("json-08", "Write tests for the invoice export, it is uncovered right now.", "normal"),
+    ("json-09", "The SSL certificate expires tomorrow.", "high"),
+    ("json-10", "Clean up the unused CSS classes if there is time left.", "low"),
+]
+
+CONSTRAINT_EN = [
+    ("con-01", "Answer with exactly one word: what is the capital of France?",
+     r"^\s*Paris\.?\s*$"),
+    ("con-02", "Give only the number, no text and no unit: how many seconds are in an hour?",
+     r"^\s*3600\s*$"),
+    ("con-03", "Answer only with YES or NO, in capitals: is 17 a prime number?",
+     r"^\s*YES\s*$"),
+    ("con-04", "Name three colours, separated by exactly one comma and no spaces, nothing else.",
+     r"^\s*[A-Za-z]+,[A-Za-z]+,[A-Za-z]+\s*$"),
+    ("con-05", "Answer in exactly five words why tests are useful. No punctuation.",
+     r"^\s*(?:[A-Za-z]+\s+){4}[A-Za-z]+\s*$"),
+]
+
+
+def build(lang: str = "nl", kinds: "tuple[str, ...] | None" = None):
+    """Return a list of task dicts: id, kind, prompt, max_tokens, and the scoring payload.
+
+    `lang` picks the prompt language for the json and constraint categories ("nl" or "en");
+    code and recall are language-neutral and identical either way. `kinds` restricts the set,
+    which is how an English round can cover only the two categories where language matters
+    without paying for a full round.
+    """
     tasks = []
     for tid, prompt, tests in CODE:
         tasks.append({"id": tid, "kind": "code", "prompt": prompt, "max_tokens": 3000,
                       "tests": tests})
-    for tid, melding, prio in JSON_TASKS:
-        tasks.append({"id": tid, "kind": "json", "max_tokens": 1500, "priority": prio,
-                      "prompt": "Je roept een tool aan. Hier is het schema:\n\n" + SCHEMA +
-                                "\n\nMelding: " + melding +
-                                "\n\nGeef uitsluitend het argumenten-object als JSON, zonder "
-                                "codeblok en zonder uitleg. Kies de juiste priority."})
-    for tid, prompt, pattern in CONSTRAINT:
+    if lang == "en":
+        for tid, report, prio in JSON_TASKS_EN:
+            tasks.append({"id": tid, "kind": "json", "max_tokens": 1500, "priority": prio,
+                          "prompt": "You are calling a tool. Here is the schema:\n\n" + SCHEMA_EN +
+                                    "\n\nReport: " + report +
+                                    "\n\nReturn only the arguments object as JSON, with no code "
+                                    "fence and no explanation. Pick the right priority."})
+    else:
+        for tid, melding, prio in JSON_TASKS:
+            tasks.append({"id": tid, "kind": "json", "max_tokens": 1500, "priority": prio,
+                          "prompt": "Je roept een tool aan. Hier is het schema:\n\n" + SCHEMA +
+                                    "\n\nMelding: " + melding +
+                                    "\n\nGeef uitsluitend het argumenten-object als JSON, zonder "
+                                    "codeblok en zonder uitleg. Kies de juiste priority."})
+    for tid, prompt, pattern in (CONSTRAINT_EN if lang == "en" else CONSTRAINT):
         tasks.append({"id": tid, "kind": "constraint", "prompt": prompt, "max_tokens": 1200,
                       "pattern": pattern})
     for tid, needle, answer in RECALL:
@@ -149,4 +213,6 @@ def build():
                                     "KR-7742-B": "Wat is het serienummer van de hijskraan?",
                                     "37": "In welke week loopt de vergunning af?",
                                 }[answer]})
+    if kinds is not None:
+        tasks = [t for t in tasks if t["kind"] in kinds]
     return tasks

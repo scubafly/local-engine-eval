@@ -40,8 +40,14 @@ if __name__ == "__main__":
     key = sys.argv[4] if len(sys.argv) > 4 else ""
     out = pathlib.Path(os.environ.get("EVAL_OUT", HERE / "results")) / f"{label}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
+    # EVAL_LANG picks the prompt language for the json and constraint categories; EVAL_KINDS
+    # restricts which categories run, so an English round can cover just those two.
+    lang = os.environ.get("EVAL_LANG", "nl")
+    kinds = tuple(k.strip() for k in os.environ["EVAL_KINDS"].split(",")) \
+        if os.environ.get("EVAL_KINDS") else None
+    tasks = qt.build(lang, kinds)
     results = []
-    for i, task in enumerate(qt.build(), 1):
+    for i, task in enumerate(tasks, 1):
         try:
             answer, secs, finish, used = ask(base, model, task["prompt"], task["max_tokens"], key)
             err = None
@@ -50,6 +56,7 @@ if __name__ == "__main__":
         results.append({"id": task["id"], "kind": task["kind"], "answer": answer,
                         "secs": round(secs, 2), "error": err, "finish": finish, "used": used})
         flag = "FOUT: " + err if err else ("AFGEKAPT" if finish == "length" else "")
-        print(f"  {i:2d}/30 {task['id']:9s} {secs:6.1f}s {str(used or '-'):>5s} tok {flag}", flush=True)
-        out.write_text(json.dumps({"label": label, "model": model, "results": results}, indent=1))
+        print(f"  {i:2d}/{len(tasks)} {task['id']:9s} {secs:6.1f}s {str(used or '-'):>5s} tok {flag}", flush=True)
+        out.write_text(json.dumps({"label": label, "model": model, "lang": lang,
+                                   "results": results}, indent=1))
     print(f"opgeslagen in {out}")

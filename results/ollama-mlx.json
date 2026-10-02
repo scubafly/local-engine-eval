@@ -1,0 +1,276 @@
+{
+ "label": "ollama-mlx",
+ "model": "qwen3.8:27b-mlx",
+ "results": [
+  {
+   "id": "code-01",
+   "kind": "code",
+   "answer": "```python\ndef is_palindrome(s):\n    cleaned = ''.join(c.lower() for c in s if c.isalnum())\n    return cleaned == cleaned[::-1]\n```",
+   "secs": 10.99,
+   "error": null,
+   "finish": "stop",
+   "used": 136
+  },
+  {
+   "id": "code-02",
+   "kind": "code",
+   "answer": "```python\ndef chunk(lst, n):\n    return [lst[i:i + n] for i in range(0, len(lst), n)]\n```",
+   "secs": 12.6,
+   "error": null,
+   "finish": "stop",
+   "used": 309
+  },
+  {
+   "id": "code-03",
+   "kind": "code",
+   "answer": "```python\ndef roman(n):\n    if not 1 <= n <= 3999:\n        raise ValueError(\"n must be between 1 and 3999\")\n    pairs = [\n        (1000, \"M\"), (900, \"CM\"), (500, \"D\"), (400, \"CD\"),\n        (100, \"C\"), (90, \"XC\"), (50, \"L\"), (40, \"XL\"),\n        (10, \"X\"), (9, \"IX\"), (5, \"V\"), (4, \"IV\"), (1, \"I\"),\n    ]\n    result = []\n    for value, symbol in pairs:\n        while n >= value:\n            result.append(symbol)\n            n -= value\n    return \"\".join(result)\n```",
+   "secs": 14.19,
+   "error": null,
+   "finish": "stop",
+   "used": 377
+  },
+  {
+   "id": "code-04",
+   "kind": "code",
+   "answer": "```python\ndef merge_intervals(iv):\n    if not iv:\n        return []\n    sorted_iv = sorted(iv, key=lambda x: x[0])\n    merged = [sorted_iv[0]]\n    for start, end in sorted_iv[1:]:\n        if start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n    return merged\n```",
+   "secs": 7.57,
+   "error": null,
+   "finish": "stop",
+   "used": 192
+  },
+  {
+   "id": "code-05",
+   "kind": "code",
+   "answer": "```python\nimport re\nfrom collections import Counter\n\ndef word_freq(tekst):\n    woorden = re.findall(r'[a-z0-9]+', tekst.lower())\n    return dict(Counter(woorden))\n```",
+   "secs": 21.31,
+   "error": null,
+   "finish": "stop",
+   "used": 509
+  },
+  {
+   "id": "code-06",
+   "kind": "code",
+   "answer": "```python\ndef flatten(x):\n    for item in x:\n        if isinstance(item, list):\n            yield from flatten(item)\n        else:\n            yield item\n```",
+   "secs": 36.83,
+   "error": null,
+   "finish": "stop",
+   "used": 841
+  },
+  {
+   "id": "code-07",
+   "kind": "code",
+   "answer": "```python\nimport re\n\ndef parse_duration(s):\n    total = 0\n    for number, unit in re.findall(r'(\\d+)([hms])', s):\n        n = int(number)\n        total += n * {'h': 3600, 'm': 60, 's': 1}[unit]\n    return total\n```",
+   "secs": 17.15,
+   "error": null,
+   "finish": "stop",
+   "used": 460
+  },
+  {
+   "id": "code-08",
+   "kind": "code",
+   "answer": "```python\ndef top_k(lst, k):\n    return sorted(lst, reverse=True)[:k]\n```",
+   "secs": 7.79,
+   "error": null,
+   "finish": "stop",
+   "used": 181
+  },
+  {
+   "id": "code-09",
+   "kind": "code",
+   "answer": "```python\ndef is_valid_brackets(s):\n    stack = []\n    pairs = {')': '(', ']': '[', '}': '{'}\n    for ch in s:\n        if ch in '([{':\n            stack.append(ch)\n        elif ch in ')]}':\n            if not stack or stack[-1] != pairs[ch]:\n                return False\n            stack.pop()\n    return not stack\n```",
+   "secs": 7.92,
+   "error": null,
+   "finish": "stop",
+   "used": 202
+  },
+  {
+   "id": "code-10",
+   "kind": "code",
+   "answer": "```python\ndef diff_lines(a, b):\n    result = []\n    for i in range(max(len(a), len(b))):\n        if i < len(a) and i < len(b):\n            if a[i] == b[i]:\n                result.append((' ', a[i]))\n            else:\n                result.append(('-', a[i]))\n                result.append(('+', b[i]))\n        elif i < len(a):\n            result.append(('-', a[i]))\n        else:\n            result.append(('+', b[i]))\n    return result\n```",
+   "secs": 31.09,
+   "error": null,
+   "finish": "stop",
+   "used": 812
+  },
+  {
+   "id": "json-01",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Koffiemachine op kantoor lekt water\",\n  \"priority\": \"high\",\n  \"labels\": [\"faciliteiten\", \"koffiemachine\", \"lek\", \"onderhoud\"]\n}",
+   "secs": 13.83,
+   "error": null,
+   "finish": "stop",
+   "used": 289
+  },
+  {
+   "id": "json-02",
+   "kind": "json",
+   "answer": "{\"title\":\"Kleur van de footer aanpassen\",\"priority\":\"low\",\"labels\":[\"footer\",\"kleur\",\"ui\"]}",
+   "secs": 12.16,
+   "error": null,
+   "finish": "stop",
+   "used": 265
+  },
+  {
+   "id": "json-03",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Betaalpagina geeft 500-fout bij elke order \u2013 productiestop\",\n  \"priority\": \"high\",\n  \"labels\": [\"production\", \"payment\", \"500-error\", \"incident\"]\n}",
+   "secs": 12.2,
+   "error": null,
+   "finish": "stop",
+   "used": 287
+  },
+  {
+   "id": "json-04",
+   "kind": "json",
+   "answer": "{\"title\":\"Voeg een dark mode toe aan het dashboard\",\"priority\":\"normal\",\"labels\":[\"dark mode\",\"dashboard\",\"feature\"]}",
+   "secs": 14.39,
+   "error": null,
+   "finish": "stop",
+   "used": 360
+  },
+  {
+   "id": "json-05",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Zoekfunctie negeert accenten\",\n  \"priority\": \"high\",\n  \"labels\": [\"zoekfunctie\", \"bug\", \"accenten\", \"i18n\"]\n}",
+   "secs": 18.68,
+   "error": null,
+   "finish": "stop",
+   "used": 401
+  },
+  {
+   "id": "json-06",
+   "kind": "json",
+   "answer": "{\"title\":\"Alle back-ups mislukt sinds maandag\",\"priority\":\"high\",\"labels\":[\"back-up\",\"storing\",\"infrastructuur\"],\"estimate\":4}",
+   "secs": 12.97,
+   "error": null,
+   "finish": "stop",
+   "used": 279
+  },
+  {
+   "id": "json-07",
+   "kind": "json",
+   "answer": "{\"title\":\"Wijzig tekst 'Inloggen' naar 'Aanmelden'\",\"priority\":\"low\",\"labels\":[\"tekst\",\"correctie\"]}",
+   "secs": 16.47,
+   "error": null,
+   "finish": "stop",
+   "used": 388
+  },
+  {
+   "id": "json-08",
+   "kind": "json",
+   "answer": "{\"title\":\"Schrijf tests voor de factuur-export\",\"priority\":\"normal\",\"labels\":[\"testing\",\"factuur-export\",\"coverage\"]}",
+   "secs": 20.46,
+   "error": null,
+   "finish": "stop",
+   "used": 471
+  },
+  {
+   "id": "json-09",
+   "kind": "json",
+   "answer": "{\"title\":\"SSL-certificaat verloopt morgen\",\"priority\":\"high\",\"labels\":[\"ssl\",\"certificaat\",\"security\"],\"estimate\":1}",
+   "secs": 14.26,
+   "error": null,
+   "finish": "stop",
+   "used": 320
+  },
+  {
+   "id": "json-10",
+   "kind": "json",
+   "answer": "{\"title\":\"Ruim de ongebruikte CSS-klassen op\",\"priority\":\"low\",\"labels\":[\"css\",\"cleanup\",\"maintenance\"],\"estimate\":1}",
+   "secs": 13.95,
+   "error": null,
+   "finish": "stop",
+   "used": 282
+  },
+  {
+   "id": "con-01",
+   "kind": "constraint",
+   "answer": "Parijs",
+   "secs": 3.51,
+   "error": null,
+   "finish": "stop",
+   "used": 75
+  },
+  {
+   "id": "con-02",
+   "kind": "constraint",
+   "answer": "3600",
+   "secs": 2.93,
+   "error": null,
+   "finish": "stop",
+   "used": 58
+  },
+  {
+   "id": "con-03",
+   "kind": "constraint",
+   "answer": "JA",
+   "secs": 3.71,
+   "error": null,
+   "finish": "stop",
+   "used": 79
+  },
+  {
+   "id": "con-04",
+   "kind": "constraint",
+   "answer": "rood,blauw,groen",
+   "secs": 7.42,
+   "error": null,
+   "finish": "stop",
+   "used": 163
+  },
+  {
+   "id": "con-05",
+   "kind": "constraint",
+   "answer": "Tests voorkomen dat fouten doorgaan",
+   "secs": 26.18,
+   "error": null,
+   "finish": "stop",
+   "used": 612
+  },
+  {
+   "id": "rec-01",
+   "kind": "recall",
+   "answer": "8831",
+   "secs": 169.58,
+   "error": null,
+   "finish": "stop",
+   "used": 131
+  },
+  {
+   "id": "rec-02",
+   "kind": "recall",
+   "answer": "Mevrouw Visserman",
+   "secs": 167.99,
+   "error": null,
+   "finish": "stop",
+   "used": 93
+  },
+  {
+   "id": "rec-03",
+   "kind": "recall",
+   "answer": "28 dagen",
+   "secs": 90.19,
+   "error": null,
+   "finish": "stop",
+   "used": 82
+  },
+  {
+   "id": "rec-04",
+   "kind": "recall",
+   "answer": "KR-7742-B",
+   "secs": 167.58,
+   "error": null,
+   "finish": "stop",
+   "used": 88
+  },
+  {
+   "id": "rec-05",
+   "kind": "recall",
+   "answer": "Week 37",
+   "secs": 87.33,
+   "error": null,
+   "finish": "stop",
+   "used": 94
+  }
+ ]
+}

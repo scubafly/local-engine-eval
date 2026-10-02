@@ -1,0 +1,276 @@
+{
+ "label": "mlx-lm",
+ "model": "mlx-community/Qwen3.8-27B-4bit",
+ "results": [
+  {
+   "id": "code-01",
+   "kind": "code",
+   "answer": "def is_palindrome(s):\n    chars = [c.lower() for c in s if c.isalnum()]\n    return chars == chars[::-1]",
+   "secs": 21.43,
+   "error": null,
+   "finish": "stop",
+   "used": 337
+  },
+  {
+   "id": "code-02",
+   "kind": "code",
+   "answer": "def chunk(lst, n):\n    if n <= 0:\n        raise ValueError(\"n moet positief zijn\")\n    return [lst[i:i + n] for i in range(0, len(lst), n)]",
+   "secs": 16.4,
+   "error": null,
+   "finish": "stop",
+   "used": 256
+  },
+  {
+   "id": "code-03",
+   "kind": "code",
+   "answer": "def roman(n):\n    if not isinstance(n, int) or isinstance(n, bool) or not 1 <= n <= 3999:\n        raise ValueError(\"n moet een geheel getal tussen 1 en 3999 zijn\")\n\n    waarden = [\n        (1000, \"M\"),\n        (900, \"CM\"),\n        (500, \"D\"),\n        (400, \"CD\"),\n        (100, \"C\"),\n        (90, \"XC\"),\n        (50, \"L\"),\n        (40, \"XL\"),\n        (10, \"X\"),\n        (9, \"IX\"),\n        (5, \"V\"),\n        (4, \"IV\"),\n        (1, \"I\")\n    ]\n\n    resultaat = []\n    for waarde, teken in waarden:\n        while n >= waarde:\n            resultaat.append(teken)\n            n -= waarde\n\n    return \"\".join(resultaat)",
+   "secs": 38.27,
+   "error": null,
+   "finish": "stop",
+   "used": 627
+  },
+  {
+   "id": "code-04",
+   "kind": "code",
+   "answer": "def merge_intervals(iv):\n    if not iv:\n        return []\n\n    intervals = sorted((start, end) for start, end in iv)\n    merged = [list(intervals[0])]\n\n    for start, end in intervals[1:]:\n        if start <= merged[-1][1]:\n            merged[-1][1] = max(merged[-1][1], end)\n        else:\n            merged.append([start, end])\n\n    return merged",
+   "secs": 31.76,
+   "error": null,
+   "finish": "stop",
+   "used": 525
+  },
+  {
+   "id": "code-05",
+   "kind": "code",
+   "answer": "",
+   "secs": 178.13,
+   "error": null,
+   "finish": "length",
+   "used": 3000
+  },
+  {
+   "id": "code-06",
+   "kind": "code",
+   "answer": "def flatten(x):\n    result = []\n    stack = [iter(x)]\n\n    while stack:\n        try:\n            item = next(stack[-1])\n        except StopIteration:\n            stack.pop()\n        else:\n            if isinstance(item, list):\n                stack.append(iter(item))\n            else:\n                result.append(item)\n\n    return result",
+   "secs": 44.68,
+   "error": null,
+   "finish": "stop",
+   "used": 729
+  },
+  {
+   "id": "code-07",
+   "kind": "code",
+   "answer": "",
+   "secs": 180.81,
+   "error": null,
+   "finish": "length",
+   "used": 3000
+  },
+  {
+   "id": "code-08",
+   "kind": "code",
+   "answer": "def top_k(lst, k):\n    if k <= 0:\n        return []\n    return sorted(lst, reverse=True)[:k]",
+   "secs": 55.21,
+   "error": null,
+   "finish": "stop",
+   "used": 386
+  },
+  {
+   "id": "code-09",
+   "kind": "code",
+   "answer": "def is_valid_brackets(s: str) -> bool:\n    stack = []\n    matching = {\n        \")\": \"(\",\n        \"]\": \"[\",\n        \"}\": \"{\"\n    }\n    opening = set(matching.values())\n\n    for char in s:\n        if char in opening:\n            stack.append(char)\n        elif char in matching:\n            if not stack or stack[-1] != matching[char]:\n                return False\n            stack.pop()\n\n    return not stack",
+   "secs": 75.67,
+   "error": null,
+   "finish": "stop",
+   "used": 585
+  },
+  {
+   "id": "code-10",
+   "kind": "code",
+   "answer": "",
+   "secs": 417.32,
+   "error": null,
+   "finish": "length",
+   "used": 3000
+  },
+  {
+   "id": "json-01",
+   "kind": "json",
+   "answer": "{\"title\":\"Koffiemachine lekt water\",\"priority\":\"high\",\"labels\":[\"koffiemachine\",\"lekkage\",\"faciliteiten\"]}",
+   "secs": 49.63,
+   "error": null,
+   "finish": "stop",
+   "used": 315
+  },
+  {
+   "id": "json-02",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Kleur van de footer aanpassen\",\n  \"priority\": \"low\",\n  \"labels\": [\"footer\", \"kleur\"]\n}",
+   "secs": 39.24,
+   "error": null,
+   "finish": "stop",
+   "used": 253
+  },
+  {
+   "id": "json-03",
+   "kind": "json",
+   "answer": "{\"title\":\"Betaalpagina geeft 500 bij iedere order; productie staat stil\",\"priority\":\"high\",\"labels\":[\"payment\",\"production\",\"incident\"]}",
+   "secs": 44.42,
+   "error": null,
+   "finish": "stop",
+   "used": 302
+  },
+  {
+   "id": "json-04",
+   "kind": "json",
+   "answer": "{\"title\":\"Voeg een dark mode toe aan het dashboard\",\"priority\":\"low\",\"labels\":[\"dark-mode\",\"dashboard\",\"next-sprint\"]}",
+   "secs": 74.82,
+   "error": null,
+   "finish": "stop",
+   "used": 513
+  },
+  {
+   "id": "json-05",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Zoekfunctie negeert accenten\",\n  \"priority\": \"high\",\n  \"labels\": [\n    \"zoekfunctie\",\n    \"accenten\",\n    \"bug\"\n  ],\n  \"estimate\": 2\n}",
+   "secs": 106.78,
+   "error": null,
+   "finish": "stop",
+   "used": 738
+  },
+  {
+   "id": "json-06",
+   "kind": "json",
+   "answer": "{\"title\":\"Alle back-ups zijn sinds maandag mislukt\",\"priority\":\"high\",\"labels\":[\"backups\",\"incident\"]}",
+   "secs": 39.4,
+   "error": null,
+   "finish": "stop",
+   "used": 256
+  },
+  {
+   "id": "json-07",
+   "kind": "json",
+   "answer": "{\n  \"title\": \"Wissel tekst 'Inloggen' naar 'Aanmelden'\",\n  \"priority\": \"low\",\n  \"labels\": [\"tekst\", \"ui\"]\n}",
+   "secs": 46.46,
+   "error": null,
+   "finish": "stop",
+   "used": 300
+  },
+  {
+   "id": "json-08",
+   "kind": "json",
+   "answer": "{\"title\":\"Schrijf tests voor de factuur-export\",\"priority\":\"normal\",\"labels\":[\"testing\",\"factuur-export\",\"coverage\"]}",
+   "secs": 157.02,
+   "error": null,
+   "finish": "stop",
+   "used": 1077
+  },
+  {
+   "id": "json-09",
+   "kind": "json",
+   "answer": "{\"title\":\"SSL-certificaat verloopt morgen\",\"priority\":\"high\",\"labels\":[\"ssl\",\"certificaat\",\"urgentie\"],\"estimate\":1}",
+   "secs": 47.29,
+   "error": null,
+   "finish": "stop",
+   "used": 276
+  },
+  {
+   "id": "json-10",
+   "kind": "json",
+   "answer": "{\"title\":\"Ruim ongebruikte CSS-klassen op\",\"priority\":\"low\",\"labels\":[\"css\",\"cleanup\",\"chore\"]}",
+   "secs": 39.02,
+   "error": null,
+   "finish": "stop",
+   "used": 214
+  },
+  {
+   "id": "con-01",
+   "kind": "constraint",
+   "answer": "Parijs",
+   "secs": 10.56,
+   "error": null,
+   "finish": "stop",
+   "used": 64
+  },
+  {
+   "id": "con-02",
+   "kind": "constraint",
+   "answer": "3600",
+   "secs": 12.89,
+   "error": null,
+   "finish": "stop",
+   "used": 79
+  },
+  {
+   "id": "con-03",
+   "kind": "constraint",
+   "answer": "JA",
+   "secs": 12.3,
+   "error": null,
+   "finish": "stop",
+   "used": 79
+  },
+  {
+   "id": "con-04",
+   "kind": "constraint",
+   "answer": "rood,blauw,geel",
+   "secs": 70.71,
+   "error": null,
+   "finish": "stop",
+   "used": 437
+  },
+  {
+   "id": "con-05",
+   "kind": "constraint",
+   "answer": "Tests voorkomen fouten in code",
+   "secs": 49.47,
+   "error": null,
+   "finish": "stop",
+   "used": 266
+  },
+  {
+   "id": "rec-01",
+   "kind": "recall",
+   "answer": "8831",
+   "secs": 319.19,
+   "error": null,
+   "finish": "stop",
+   "used": 114
+  },
+  {
+   "id": "rec-02",
+   "kind": "recall",
+   "answer": "mevrouw Visserman",
+   "secs": 329.11,
+   "error": null,
+   "finish": "stop",
+   "used": 139
+  },
+  {
+   "id": "rec-03",
+   "kind": "recall",
+   "answer": "28 dagen",
+   "secs": 289.15,
+   "error": null,
+   "finish": "stop",
+   "used": 128
+  },
+  {
+   "id": "rec-04",
+   "kind": "recall",
+   "answer": "KR-7742-B",
+   "secs": 286.53,
+   "error": null,
+   "finish": "stop",
+   "used": 126
+  },
+  {
+   "id": "rec-05",
+   "kind": "recall",
+   "answer": "week 37",
+   "secs": 289.8,
+   "error": null,
+   "finish": "stop",
+   "used": 146
+  }
+ ]
+}
